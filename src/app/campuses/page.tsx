@@ -1,143 +1,90 @@
-import Link from "next/link";
-import type { Metadata } from "next";
+"use client";
 
-export const metadata: Metadata = {
-  title: "Campuses | Creeb",
-  description:
-    "Explore student housing options near campuses across the United States.",
-};
+import Link from "next/link";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { MapPin, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { cn } from "@/lib/utils";
 
 const campuses = [
-  {
-    name: "University of California, Los Angeles (UCLA)",
-    location: "Los Angeles, CA",
-    region: "West Coast",
-    listingsCount: 150,
-  },
-  {
-    name: "Massachusetts Institute of Technology (MIT)",
-    location: "Cambridge, MA",
-    region: "Northeast",
-    listingsCount: 85,
-  },
-  {
-    name: "University of Texas at Austin",
-    location: "Austin, TX",
-    region: "South",
-    listingsCount: 120,
-  },
-  {
-    name: "University of Michigan",
-    location: "Ann Arbor, MI",
-    region: "Midwest",
-    listingsCount: 95,
-  },
-  {
-    name: "Stanford University",
-    location: "Stanford, CA",
-    region: "West Coast",
-    listingsCount: 75,
-  },
-  {
-    name: "New York University (NYU)",
-    location: "New York, NY",
-    region: "Northeast",
-    listingsCount: 200,
-  },
-  {
-    name: "University of Washington",
-    location: "Seattle, WA",
-    region: "West Coast",
-    listingsCount: 110,
-  },
-  {
-    name: "Georgia Institute of Technology",
-    location: "Atlanta, GA",
-    region: "South",
-    listingsCount: 90,
-  },
-  {
-    name: "University of Illinois Urbana-Champaign",
-    location: "Champaign, IL",
-    region: "Midwest",
-    listingsCount: 130,
-  },
-  {
-    name: "Boston University",
-    location: "Boston, MA",
-    region: "Northeast",
-    listingsCount: 105,
-  },
-  {
-    name: "University of Southern California (USC)",
-    location: "Los Angeles, CA",
-    region: "West Coast",
-    listingsCount: 140,
-  },
-  {
-    name: "University of Florida",
-    location: "Gainesville, FL",
-    region: "South",
-    listingsCount: 115,
-  },
+  { name: "UCLA", location: "Los Angeles, CA", region: "West", listings: 150 },
+  { name: "MIT", location: "Cambridge, MA", region: "Northeast", listings: 85 },
+  { name: "UT Austin", location: "Austin, TX", region: "South", listings: 120 },
+  { name: "UMich", location: "Ann Arbor, MI", region: "Midwest", listings: 95 },
+  { name: "Stanford", location: "Stanford, CA", region: "West", listings: 75 },
+  { name: "NYU", location: "New York, NY", region: "Northeast", listings: 200 },
+  { name: "UW", location: "Seattle, WA", region: "West", listings: 110 },
+  { name: "Georgia Tech", location: "Atlanta, GA", region: "South", listings: 90 },
+  { name: "UIUC", location: "Champaign, IL", region: "Midwest", listings: 130 },
+  { name: "Boston University", location: "Boston, MA", region: "Northeast", listings: 105 },
+  { name: "USC", location: "Los Angeles, CA", region: "West", listings: 140 },
+  { name: "UF", location: "Gainesville, FL", region: "South", listings: 115 },
 ];
 
-const regions = ["All", "West Coast", "Northeast", "South", "Midwest"];
+const regions = ["All", "West", "Northeast", "South", "Midwest"];
 
 export default function CampusesPage() {
+  const [selectedRegion, setSelectedRegion] = useState("All");
+
+  const filteredCampuses =
+    selectedRegion === "All"
+      ? campuses
+      : campuses.filter((c) => c.region === selectedRegion);
+
   return (
     <>
-      {/* Hero Section */}
-      <section className="bg-emerald-50 py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Our Partner Campuses
-            </h1>
-            <p className="text-lg text-gray-600">
-              Find student housing near universities across the United States.
-              More campuses are being added regularly.
+      {/* Header */}
+      <section className="pt-32 pb-16 px-6">
+        <div className="max-w-6xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <p className="text-sm font-medium text-neutral-500 uppercase tracking-wider">
+              Campuses
             </p>
+            <h1 className="mt-3 text-4xl md:text-5xl font-semibold tracking-tight">
+              Where we operate
+            </h1>
+            <p className="mt-4 text-neutral-500 max-w-xl">
+              We partner with universities across the US to provide verified
+              student housing. Select your region or browse all campuses.
+            </p>
+          </motion.div>
+
+          {/* Stats */}
+          <div className="mt-12 flex flex-wrap gap-8">
+            {[
+              { value: "50+", label: "Campuses" },
+              { value: "25", label: "States" },
+              { value: "1,500+", label: "Listings" },
+            ].map((stat) => (
+              <div key={stat.label} className="flex items-baseline gap-2">
+                <span className="text-2xl font-semibold">{stat.value}</span>
+                <span className="text-sm text-neutral-500">{stat.label}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Campus Stats */}
-      <section className="py-12 bg-white border-b">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            <div>
-              <p className="text-3xl font-bold text-emerald-600">50+</p>
-              <p className="text-gray-600">Partner Campuses</p>
-            </div>
-            <div>
-              <p className="text-3xl font-bold text-emerald-600">25</p>
-              <p className="text-gray-600">States Covered</p>
-            </div>
-            <div>
-              <p className="text-3xl font-bold text-emerald-600">1,500+</p>
-              <p className="text-gray-600">Available Listings</p>
-            </div>
-            <div>
-              <p className="text-3xl font-bold text-emerald-600">Growing</p>
-              <p className="text-gray-600">Every Month</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Region Filter */}
-      <section className="py-8 bg-gray-50 sticky top-16 z-40">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-wrap gap-3 justify-center">
+      {/* Filter */}
+      <section className="px-6 pb-8 sticky top-16 z-40 bg-white border-b">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex gap-2 overflow-x-auto py-2 -mx-6 px-6">
             {regions.map((region) => (
               <button
                 key={region}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                  region === "All"
-                    ? "bg-emerald-600 text-white"
-                    : "bg-white text-gray-700 hover:bg-emerald-50 border border-gray-200"
-                }`}
+                onClick={() => setSelectedRegion(region)}
+                className={cn(
+                  "px-4 py-2 text-sm rounded-md whitespace-nowrap transition-colors",
+                  selectedRegion === region
+                    ? "bg-neutral-900 text-white"
+                    : "text-neutral-500 hover:text-neutral-900 hover:bg-neutral-100"
+                )}
               >
                 {region}
               </button>
@@ -146,125 +93,106 @@ export default function CampusesPage() {
         </div>
       </section>
 
-      {/* Campus Grid */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {campuses.map((campus) => (
-              <div
-                key={campus.name}
-                className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow border border-gray-100"
-              >
-                <div className="flex items-start justify-between mb-4">
-                  <div className="w-12 h-12 bg-emerald-100 rounded-lg flex items-center justify-center">
-                    <svg
-                      className="w-6 h-6 text-emerald-600"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"
-                      />
-                    </svg>
+      {/* Campus grid */}
+      <section className="py-12 px-6">
+        <div className="max-w-6xl mx-auto">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={selectedRegion}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.2 }}
+              className="grid md:grid-cols-2 lg:grid-cols-3 gap-4"
+            >
+              {filteredCampuses.map((campus, index) => (
+                <motion.div
+                  key={campus.name}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: index * 0.05, duration: 0.3 }}
+                  className="group p-6 border rounded-xl hover:border-neutral-300 transition-colors"
+                >
+                  <div className="flex items-start justify-between mb-4">
+                    <div>
+                      <h3 className="font-medium">{campus.name}</h3>
+                      <p className="text-sm text-neutral-500 flex items-center gap-1 mt-1">
+                        <MapPin className="w-3 h-3" />
+                        {campus.location}
+                      </p>
+                    </div>
+                    <Badge variant="secondary">{campus.region}</Badge>
                   </div>
-                  <span className="text-xs font-medium px-2 py-1 bg-emerald-50 text-emerald-700 rounded-full">
-                    {campus.region}
-                  </span>
-                </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-2">
-                  {campus.name}
-                </h3>
-                <p className="text-gray-500 text-sm mb-4 flex items-center gap-1">
-                  <svg
-                    className="w-4 h-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                    />
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                    />
-                  </svg>
-                  {campus.location}
-                </p>
-                <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                  <span className="text-sm text-gray-600">
-                    <span className="font-semibold text-emerald-600">
-                      {campus.listingsCount}
-                    </span>{" "}
-                    listings available
-                  </span>
-                  <Link
-                    href="/contact"
-                    className="text-sm font-medium text-emerald-600 hover:text-emerald-700"
-                  >
-                    Inquire
-                  </Link>
-                </div>
-              </div>
-            ))}
+                  <div className="flex items-center justify-between pt-4 border-t">
+                    <span className="text-sm text-neutral-500">
+                      {campus.listings} listings
+                    </span>
+                    <Link
+                      href="/contact"
+                      className="text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1"
+                    >
+                      Inquire
+                      <ArrowRight className="w-3 h-3" />
+                    </Link>
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+          </AnimatePresence>
+        </div>
+      </section>
+
+      {/* Request campus */}
+      <section className="py-16 px-6 border-t">
+        <div className="max-w-6xl mx-auto">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 p-8 border rounded-xl bg-neutral-50">
+            <div>
+              <h2 className="text-xl font-semibold tracking-tight">
+                Don&apos;t see your campus?
+              </h2>
+              <p className="mt-2 text-neutral-500">
+                We&apos;re expanding every month. Let us know where you need
+                housing.
+              </p>
+            </div>
+            <Button asChild>
+              <Link href="/contact">
+                Request campus
+                <ArrowRight className="ml-2 w-4 h-4" />
+              </Link>
+            </Button>
           </div>
         </div>
       </section>
 
-      {/* More Campuses Coming */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gray-50 rounded-2xl p-8 md:p-12 text-center">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              Don&apos;t See Your Campus?
+      {/* CTA */}
+      <section className="py-16 px-6 border-t bg-neutral-50">
+        <div className="max-w-6xl mx-auto">
+          <div className="max-w-2xl">
+            <h2 className="text-3xl font-semibold tracking-tight">
+              Ready to find housing?
             </h2>
-            <p className="text-gray-600 max-w-2xl mx-auto mb-6">
-              We&apos;re expanding to new campuses every month. Let us know
-              which university you&apos;re attending and we&apos;ll prioritize
-              adding it to our network.
+            <p className="mt-4 text-neutral-500 leading-relaxed">
+              Get in touch and we&apos;ll help you find the right apartment near
+              your campus.
             </p>
-            <Link
-              href="/contact"
-              className="inline-block bg-emerald-600 text-white px-6 py-3 rounded-full font-medium hover:bg-emerald-700 transition-colors"
-            >
-              Request Your Campus
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* CTA Section */}
-      <section className="py-20 bg-emerald-600">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold text-white mb-6">
-            Ready to Find Housing Near Your Campus?
-          </h2>
-          <p className="text-lg text-emerald-100 max-w-2xl mx-auto mb-8">
-            Contact us today and let our team help you find the perfect
-            apartment.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link
-              href="/contact"
-              className="bg-white text-emerald-600 px-8 py-3 rounded-full text-lg font-medium hover:bg-gray-100 transition-colors"
-            >
-              Contact Us
-            </Link>
-            <a
-              href="tel:+1-555-123-4567"
-              className="border-2 border-white text-white px-8 py-3 rounded-full text-lg font-medium hover:bg-emerald-700 transition-colors"
-            >
-              Call (555) 123-4567
-            </a>
+            <div className="mt-8 flex flex-col sm:flex-row items-start gap-4">
+              <Button asChild size="lg">
+                <Link href="/contact">
+                  Get started
+                  <ArrowRight className="ml-2 w-4 h-4" />
+                </Link>
+              </Button>
+              <div className="text-sm text-neutral-500">
+                <p>Or call us directly:</p>
+                <a
+                  href="tel:+1-555-123-4567"
+                  className="text-neutral-900 hover:underline"
+                >
+                  (555) 123-4567
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
