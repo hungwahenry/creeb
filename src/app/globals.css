@@ -1,14 +1,24 @@
 @import "tailwindcss";
 
 @theme inline {
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-display: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: "SF Mono", "Fira Code", "Monaco", "Consolas", monospace;
+
+  /* Light mode colors */
   --color-background: #ffffff;
   --color-foreground: #0a0a0a;
   --color-muted: #737373;
+  --color-muted-foreground: #525252;
   --color-border: #e5e5e5;
-  --color-accent: #0a0a0a;
-
-  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  --font-mono: "SF Mono", "Fira Code", monospace;
+  --color-card: #ffffff;
+  --color-card-foreground: #0a0a0a;
+  --color-primary: #0a0a0a;
+  --color-primary-foreground: #fafafa;
+  --color-secondary: #f5f5f5;
+  --color-secondary-foreground: #171717;
+  --color-accent: #f5f5f5;
+  --color-accent-foreground: #171717;
 }
 
 * {
@@ -28,7 +38,52 @@ body {
   font-feature-settings: "rlig" 1, "calt" 1;
 }
 
+/* Dark mode */
+.dark {
+  --color-background: #0a0a0a;
+  --color-foreground: #fafafa;
+  --color-muted: #a3a3a3;
+  --color-muted-foreground: #a3a3a3;
+  --color-border: #262626;
+  --color-card: #171717;
+  --color-card-foreground: #fafafa;
+  --color-primary: #fafafa;
+  --color-primary-foreground: #0a0a0a;
+  --color-secondary: #262626;
+  --color-secondary-foreground: #fafafa;
+  --color-accent: #262626;
+  --color-accent-foreground: #fafafa;
+}
+
 ::selection {
   background: var(--color-foreground);
   color: var(--color-background);
+}
+
+/* Display font for headings */
+.font-display {
+  font-family: var(--font-display);
+}
+
+/* Image hover effect */
+.img-hover {
+  transition: transform 0.5s ease, filter 0.5s ease;
+}
+
+.img-hover:hover {
+  transform: scale(1.02);
+}
+
+/* Smooth transitions for theme changes */
+* {
+  transition-property: background-color, border-color;
+  transition-duration: 150ms;
+  transition-timing-function: ease;
+}
+
+/* Remove transition on user preference */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+  }
 }

@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { motion } from "framer-motion";
 import { Mail, Phone, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -12,23 +13,37 @@ export default function ContactPage() {
       {/* Header */}
       <section className="pt-32 pb-16 px-6">
         <div className="max-w-6xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="max-w-2xl"
-          >
-            <p className="text-sm font-medium text-neutral-500 uppercase tracking-wider">
-              Contact
-            </p>
-            <h1 className="mt-3 text-4xl md:text-5xl font-semibold tracking-tight">
-              Get in touch
-            </h1>
-            <p className="mt-4 text-neutral-500">
-              Have questions about finding housing? We&apos;re here to help.
-              Fill out the form or reach us directly.
-            </p>
-          </motion.div>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+            >
+              <p className="text-sm font-medium text-muted-foreground uppercase tracking-wider">
+                Contact
+              </p>
+              <h1 className="mt-3 text-4xl md:text-5xl font-bold tracking-tight font-display">
+                Get in touch
+              </h1>
+              <p className="mt-4 text-muted-foreground">
+                Have questions about finding housing? We&apos;re here to help.
+                Fill out the form or reach us directly.
+              </p>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: 0.2, duration: 0.5 }}
+              className="relative aspect-[4/3] rounded-2xl overflow-hidden hidden lg:block"
+            >
+              <Image
+                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=600&fit=crop"
+                alt="Students collaborating"
+                fill
+                className="object-cover"
+              />
+            </motion.div>
+          </div>
         </div>
       </section>
 
@@ -72,7 +87,7 @@ export default function ContactPage() {
                   <label className="block text-sm font-medium mb-2">
                     What can we help with?
                   </label>
-                  <select className="flex h-9 w-full rounded-md border border-neutral-200 bg-transparent px-3 py-1 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-neutral-950">
+                  <select className="flex h-9 w-full rounded-md border border-border bg-background px-3 py-1 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-foreground">
                     <option value="">Select a topic</option>
                     <option value="housing">Looking for housing</option>
                     <option value="campus">Request new campus</option>
@@ -95,7 +110,7 @@ export default function ContactPage() {
                   Send message
                 </Button>
 
-                <p className="text-sm text-neutral-500">
+                <p className="text-sm text-muted-foreground">
                   We typically respond within 24 hours.
                 </p>
               </form>
@@ -107,11 +122,11 @@ export default function ContactPage() {
                 <div>
                   <div className="flex items-center gap-3 mb-3">
                     <div className="w-10 h-10 border rounded-lg flex items-center justify-center">
-                      <Mail className="w-5 h-5 text-neutral-600" />
+                      <Mail className="w-5 h-5 text-muted-foreground" />
                     </div>
                     <h3 className="font-medium">Email</h3>
                   </div>
-                  <p className="text-sm text-neutral-500 mb-2">
+                  <p className="text-sm text-muted-foreground mb-2">
                     Best for detailed questions
                   </p>
                   <a
@@ -125,11 +140,11 @@ export default function ContactPage() {
                 <div>
                   <div className="flex items-center gap-3 mb-3">
                     <div className="w-10 h-10 border rounded-lg flex items-center justify-center">
-                      <Phone className="w-5 h-5 text-neutral-600" />
+                      <Phone className="w-5 h-5 text-muted-foreground" />
                     </div>
                     <h3 className="font-medium">Phone</h3>
                   </div>
-                  <p className="text-sm text-neutral-500 mb-2">
+                  <p className="text-sm text-muted-foreground mb-2">
                     Mon-Fri, 9am-6pm EST
                   </p>
                   <a
@@ -143,11 +158,11 @@ export default function ContactPage() {
                 <div>
                   <div className="flex items-center gap-3 mb-3">
                     <div className="w-10 h-10 border rounded-lg flex items-center justify-center">
-                      <Clock className="w-5 h-5 text-neutral-600" />
+                      <Clock className="w-5 h-5 text-muted-foreground" />
                     </div>
                     <h3 className="font-medium">Response time</h3>
                   </div>
-                  <p className="text-sm text-neutral-500">
+                  <p className="text-sm text-muted-foreground">
                     We aim to respond within 24 hours during business days.
                     Urgent? Call us directly.
                   </p>
@@ -159,13 +174,13 @@ export default function ContactPage() {
       </section>
 
       {/* FAQ */}
-      <section className="py-16 px-6 border-t bg-neutral-50">
+      <section className="py-16 px-6 border-t bg-secondary/50">
         <div className="max-w-6xl mx-auto">
           <div className="max-w-2xl">
-            <p className="text-sm font-medium text-neutral-500 uppercase tracking-wider">
+            <p className="text-sm font-medium text-muted-foreground uppercase tracking-wider">
               FAQ
             </p>
-            <h2 className="mt-3 text-2xl font-semibold tracking-tight">
+            <h2 className="mt-3 text-2xl font-bold tracking-tight font-display">
               Common questions
             </h2>
           </div>
@@ -196,8 +211,8 @@ export default function ContactPage() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.3 }}
               >
-                <h3 className="font-medium mb-2">{faq.q}</h3>
-                <p className="text-sm text-neutral-500 leading-relaxed">
+                <h3 className="font-semibold mb-2">{faq.q}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">
                   {faq.a}
                 </p>
               </motion.div>

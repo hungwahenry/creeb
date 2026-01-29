@@ -7,6 +7,7 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { ThemeToggle } from "@/components/ThemeToggle";
 
 const links = [
   { href: "/", label: "Home" },
@@ -20,9 +21,9 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b">
       <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <Link href="/" className="text-lg font-semibold tracking-tight">
+        <Link href="/" className="text-xl font-bold tracking-tight font-display">
           creeb
         </Link>
 
@@ -34,15 +35,15 @@ export default function Navbar() {
               className={cn(
                 "relative px-4 py-2 text-sm transition-colors",
                 pathname === link.href
-                  ? "text-neutral-900"
-                  : "text-neutral-500 hover:text-neutral-900"
+                  ? "text-foreground"
+                  : "text-muted-foreground hover:text-foreground"
               )}
             >
               {link.label}
               {pathname === link.href && (
                 <motion.div
                   layoutId="navbar-indicator"
-                  className="absolute inset-0 bg-neutral-100 rounded-md -z-10"
+                  className="absolute inset-0 bg-secondary rounded-md -z-10"
                   transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                 />
               )}
@@ -50,23 +51,27 @@ export default function Navbar() {
           ))}
         </div>
 
-        <div className="hidden md:block">
+        <div className="hidden md:flex items-center gap-3">
+          <ThemeToggle />
           <Button asChild size="sm">
             <Link href="/contact">Get Started</Link>
           </Button>
         </div>
 
-        <button
-          className="md:hidden p-2 -mr-2"
-          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-          aria-label="Toggle menu"
-        >
-          {mobileMenuOpen ? (
-            <X className="w-5 h-5" />
-          ) : (
-            <Menu className="w-5 h-5" />
-          )}
-        </button>
+        <div className="md:hidden flex items-center gap-2">
+          <ThemeToggle />
+          <button
+            className="p-2 -mr-2"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            aria-label="Toggle menu"
+          >
+            {mobileMenuOpen ? (
+              <X className="w-5 h-5" />
+            ) : (
+              <Menu className="w-5 h-5" />
+            )}
+          </button>
+        </div>
       </nav>
 
       {mobileMenuOpen && (
@@ -74,7 +79,7 @@ export default function Navbar() {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
-          className="md:hidden border-b bg-white"
+          className="md:hidden border-b bg-background"
         >
           <div className="px-6 py-4 space-y-1">
             {links.map((link) => (
@@ -85,8 +90,8 @@ export default function Navbar() {
                 className={cn(
                   "block px-4 py-2 text-sm rounded-md transition-colors",
                   pathname === link.href
-                    ? "bg-neutral-100 text-neutral-900"
-                    : "text-neutral-500 hover:text-neutral-900 hover:bg-neutral-50"
+                    ? "bg-secondary text-foreground"
+                    : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
                 )}
               >
                 {link.label}
