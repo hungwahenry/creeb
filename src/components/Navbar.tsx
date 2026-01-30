@@ -7,7 +7,6 @@ import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import { ThemeToggle } from "@/components/ThemeToggle";
 
 const links = [
   { href: "/", label: "Home" },
@@ -52,14 +51,12 @@ export default function Navbar() {
         </div>
 
         <div className="hidden md:flex items-center gap-3">
-          <ThemeToggle />
           <Button asChild size="sm">
             <Link href="/contact">Get Started</Link>
           </Button>
         </div>
 
         <div className="md:hidden flex items-center gap-2">
-          <ThemeToggle />
           <button
             className="p-2 -mr-2"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
