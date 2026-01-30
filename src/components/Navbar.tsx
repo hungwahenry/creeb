@@ -20,9 +20,9 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-white/80 dark:bg-neutral-950/80 backdrop-blur-md border-b border-neutral-200 dark:border-neutral-800">
       <nav className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <Link href="/" className="text-xl font-bold tracking-tight font-display">
+        <Link href="/" className="text-xl font-bold tracking-tight font-display text-neutral-900 dark:text-neutral-50">
           creeb
         </Link>
 
@@ -34,15 +34,15 @@ export default function Navbar() {
               className={cn(
                 "relative px-4 py-2 text-sm transition-colors",
                 pathname === link.href
-                  ? "text-foreground"
-                  : "text-muted-foreground hover:text-foreground"
+                  ? "text-neutral-900 dark:text-neutral-50"
+                  : "text-neutral-500 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-50"
               )}
             >
               {link.label}
               {pathname === link.href && (
                 <motion.div
                   layoutId="navbar-indicator"
-                  className="absolute inset-0 bg-secondary rounded-md -z-10"
+                  className="absolute inset-0 bg-neutral-100 dark:bg-neutral-800 rounded-md -z-10"
                   transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                 />
               )}
@@ -58,7 +58,7 @@ export default function Navbar() {
 
         <div className="md:hidden flex items-center gap-2">
           <button
-            className="p-2 -mr-2"
+            className="p-2 -mr-2 text-neutral-900 dark:text-neutral-50"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -76,7 +76,7 @@ export default function Navbar() {
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -10 }}
-          className="md:hidden border-b bg-background"
+          className="md:hidden border-b border-neutral-200 dark:border-neutral-800 bg-white dark:bg-neutral-950"
         >
           <div className="px-6 py-4 space-y-1">
             {links.map((link) => (
@@ -87,8 +87,8 @@ export default function Navbar() {
                 className={cn(
                   "block px-4 py-2 text-sm rounded-md transition-colors",
                   pathname === link.href
-                    ? "bg-secondary text-foreground"
-                    : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
+                    ? "bg-neutral-100 dark:bg-neutral-800 text-neutral-900 dark:text-neutral-50"
+                    : "text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-50 hover:bg-neutral-50 dark:hover:bg-neutral-800/50"
                 )}
               >
                 {link.label}

@@ -19,13 +19,13 @@ export default function ContactPage() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <p className="text-sm font-medium text-muted-foreground uppercase tracking-wider">
+              <p className="text-sm font-medium text-neutral-500 dark:text-neutral-400 uppercase tracking-wider">
                 Contact
               </p>
-              <h1 className="mt-3 text-4xl md:text-5xl font-bold tracking-tight font-display">
+              <h1 className="mt-3 text-4xl md:text-5xl font-bold tracking-tight font-display text-neutral-900 dark:text-neutral-50">
                 Get in touch
               </h1>
-              <p className="mt-4 text-muted-foreground">
+              <p className="mt-4 text-neutral-500 dark:text-neutral-400">
                 Have questions about finding housing? We&apos;re here to help.
                 Fill out the form or reach us directly.
               </p>
@@ -56,13 +56,13 @@ export default function ContactPage() {
               <form className="space-y-6">
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-sm font-medium mb-2">
+                    <label className="block text-sm font-medium mb-2 text-neutral-900 dark:text-neutral-50">
                       First name
                     </label>
                     <Input placeholder="Jane" />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium mb-2">
+                    <label className="block text-sm font-medium mb-2 text-neutral-900 dark:text-neutral-50">
                       Last name
                     </label>
                     <Input placeholder="Smith" />
@@ -70,24 +70,24 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium mb-2">
+                  <label className="block text-sm font-medium mb-2 text-neutral-900 dark:text-neutral-50">
                     Email
                   </label>
                   <Input type="email" placeholder="jane@university.edu" />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium mb-2">
+                  <label className="block text-sm font-medium mb-2 text-neutral-900 dark:text-neutral-50">
                     Campus
                   </label>
                   <Input placeholder="e.g., UCLA, MIT, UT Austin" />
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium mb-2">
+                  <label className="block text-sm font-medium mb-2 text-neutral-900 dark:text-neutral-50">
                     What can we help with?
                   </label>
-                  <select className="flex h-9 w-full rounded-md border border-border bg-background px-3 py-1 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-foreground">
+                  <select className="flex h-9 w-full rounded-md border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-950 px-3 py-1 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-neutral-950 dark:focus-visible:ring-neutral-300 text-neutral-900 dark:text-neutral-50">
                     <option value="">Select a topic</option>
                     <option value="housing">Looking for housing</option>
                     <option value="campus">Request new campus</option>
@@ -97,7 +97,7 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <label className="block text-sm font-medium mb-2">
+                  <label className="block text-sm font-medium mb-2 text-neutral-900 dark:text-neutral-50">
                     Message
                   </label>
                   <Textarea
@@ -110,7 +110,7 @@ export default function ContactPage() {
                   Send message
                 </Button>
 
-                <p className="text-sm text-muted-foreground">
+                <p className="text-sm text-neutral-500 dark:text-neutral-400">
                   We typically respond within 24 hours.
                 </p>
               </form>
@@ -121,17 +121,17 @@ export default function ContactPage() {
               <div className="space-y-8">
                 <div>
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="w-10 h-10 border rounded-lg flex items-center justify-center">
-                      <Mail className="w-5 h-5 text-muted-foreground" />
+                    <div className="w-10 h-10 border border-neutral-200 dark:border-neutral-700 rounded-lg flex items-center justify-center bg-white dark:bg-neutral-900">
+                      <Mail className="w-5 h-5 text-neutral-600 dark:text-neutral-400" />
                     </div>
-                    <h3 className="font-medium">Email</h3>
+                    <h3 className="font-medium text-neutral-900 dark:text-neutral-50">Email</h3>
                   </div>
-                  <p className="text-sm text-muted-foreground mb-2">
+                  <p className="text-sm text-neutral-500 dark:text-neutral-400 mb-2">
                     Best for detailed questions
                   </p>
                   <a
                     href="mailto:hello@creeb.com"
-                    className="text-sm hover:underline"
+                    className="text-sm hover:underline text-neutral-900 dark:text-neutral-50"
                   >
                     hello@creeb.com
                   </a>
@@ -139,17 +139,17 @@ export default function ContactPage() {
 
                 <div>
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="w-10 h-10 border rounded-lg flex items-center justify-center">
-                      <Phone className="w-5 h-5 text-muted-foreground" />
+                    <div className="w-10 h-10 border border-neutral-200 dark:border-neutral-700 rounded-lg flex items-center justify-center bg-white dark:bg-neutral-900">
+                      <Phone className="w-5 h-5 text-neutral-600 dark:text-neutral-400" />
                     </div>
-                    <h3 className="font-medium">Phone</h3>
+                    <h3 className="font-medium text-neutral-900 dark:text-neutral-50">Phone</h3>
                   </div>
-                  <p className="text-sm text-muted-foreground mb-2">
+                  <p className="text-sm text-neutral-500 dark:text-neutral-400 mb-2">
                     Mon-Fri, 9am-6pm EST
                   </p>
                   <a
                     href="tel:+1-555-123-4567"
-                    className="text-sm hover:underline"
+                    className="text-sm hover:underline text-neutral-900 dark:text-neutral-50"
                   >
                     (555) 123-4567
                   </a>
@@ -157,12 +157,12 @@ export default function ContactPage() {
 
                 <div>
                   <div className="flex items-center gap-3 mb-3">
-                    <div className="w-10 h-10 border rounded-lg flex items-center justify-center">
-                      <Clock className="w-5 h-5 text-muted-foreground" />
+                    <div className="w-10 h-10 border border-neutral-200 dark:border-neutral-700 rounded-lg flex items-center justify-center bg-white dark:bg-neutral-900">
+                      <Clock className="w-5 h-5 text-neutral-600 dark:text-neutral-400" />
                     </div>
-                    <h3 className="font-medium">Response time</h3>
+                    <h3 className="font-medium text-neutral-900 dark:text-neutral-50">Response time</h3>
                   </div>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="text-sm text-neutral-500 dark:text-neutral-400">
                     We aim to respond within 24 hours during business days.
                     Urgent? Call us directly.
                   </p>
@@ -174,13 +174,13 @@ export default function ContactPage() {
       </section>
 
       {/* FAQ */}
-      <section className="py-16 px-6 border-t bg-secondary/50">
+      <section className="py-16 px-6 border-t border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900">
         <div className="max-w-6xl mx-auto">
           <div className="max-w-2xl">
-            <p className="text-sm font-medium text-muted-foreground uppercase tracking-wider">
+            <p className="text-sm font-medium text-neutral-500 dark:text-neutral-400 uppercase tracking-wider">
               FAQ
             </p>
-            <h2 className="mt-3 text-2xl font-bold tracking-tight font-display">
+            <h2 className="mt-3 text-2xl font-bold tracking-tight font-display text-neutral-900 dark:text-neutral-50">
               Common questions
             </h2>
           </div>
@@ -211,8 +211,8 @@ export default function ContactPage() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.3 }}
               >
-                <h3 className="font-semibold mb-2">{faq.q}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
+                <h3 className="font-semibold mb-2 text-neutral-900 dark:text-neutral-50">{faq.q}</h3>
+                <p className="text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed">
                   {faq.a}
                 </p>
               </motion.div>

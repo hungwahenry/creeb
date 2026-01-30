@@ -44,13 +44,13 @@ export default function CampusesPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <p className="text-sm font-medium text-muted-foreground uppercase tracking-wider">
+            <p className="text-sm font-medium text-neutral-500 dark:text-neutral-400 uppercase tracking-wider">
               Campuses
             </p>
-            <h1 className="mt-3 text-4xl md:text-5xl font-bold tracking-tight font-display">
+            <h1 className="mt-3 text-4xl md:text-5xl font-bold tracking-tight font-display text-neutral-900 dark:text-neutral-50">
               Where we operate
             </h1>
-            <p className="mt-4 text-muted-foreground max-w-xl">
+            <p className="mt-4 text-neutral-500 dark:text-neutral-400 max-w-xl">
               We partner with universities across the US to provide verified
               student housing. Select your region or browse all campuses.
             </p>
@@ -64,8 +64,8 @@ export default function CampusesPage() {
               { value: "1,500+", label: "Listings" },
             ].map((stat) => (
               <div key={stat.label} className="flex items-baseline gap-2">
-                <span className="text-2xl font-bold font-display">{stat.value}</span>
-                <span className="text-sm text-muted-foreground">{stat.label}</span>
+                <span className="text-2xl font-bold font-display text-neutral-900 dark:text-neutral-50">{stat.value}</span>
+                <span className="text-sm text-neutral-500 dark:text-neutral-400">{stat.label}</span>
               </div>
             ))}
           </div>
@@ -73,7 +73,7 @@ export default function CampusesPage() {
       </section>
 
       {/* Filter */}
-      <section className="px-6 pb-8 sticky top-16 z-40 bg-background/95 backdrop-blur-sm border-b">
+      <section className="px-6 pb-8 sticky top-16 z-40 bg-white/95 dark:bg-neutral-950/95 backdrop-blur-sm border-b border-neutral-200 dark:border-neutral-800">
         <div className="max-w-6xl mx-auto">
           <div className="flex gap-2 overflow-x-auto py-2 -mx-6 px-6">
             {regions.map((region) => (
@@ -83,8 +83,8 @@ export default function CampusesPage() {
                 className={cn(
                   "px-4 py-2 text-sm rounded-md whitespace-nowrap transition-colors",
                   selectedRegion === region
-                    ? "bg-foreground text-background"
-                    : "text-muted-foreground hover:text-foreground hover:bg-secondary"
+                    ? "bg-neutral-900 text-neutral-50 dark:bg-neutral-50 dark:text-neutral-900"
+                    : "text-neutral-500 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-50 hover:bg-neutral-100 dark:hover:bg-neutral-800"
                 )}
               >
                 {region}
@@ -112,7 +112,7 @@ export default function CampusesPage() {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.05, duration: 0.3 }}
-                  className="group border rounded-xl overflow-hidden hover:border-muted-foreground/30 transition-colors bg-card"
+                  className="group border border-neutral-200 dark:border-neutral-700 rounded-xl overflow-hidden hover:border-neutral-300 dark:hover:border-neutral-600 transition-colors bg-white dark:bg-neutral-900"
                 >
                   <div className="relative aspect-[3/2] overflow-hidden">
                     <Image
@@ -122,7 +122,7 @@ export default function CampusesPage() {
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                     <div className="absolute top-3 right-3">
-                      <Badge variant="secondary" className="bg-background/90 backdrop-blur-sm">
+                      <Badge variant="secondary" className="bg-white/90 dark:bg-neutral-900/90 backdrop-blur-sm">
                         {campus.region}
                       </Badge>
                     </div>
@@ -130,20 +130,20 @@ export default function CampusesPage() {
                   <div className="p-5">
                     <div className="flex items-start justify-between mb-3">
                       <div>
-                        <h3 className="font-semibold">{campus.name}</h3>
-                        <p className="text-sm text-muted-foreground flex items-center gap-1 mt-1">
+                        <h3 className="font-semibold text-neutral-900 dark:text-neutral-50">{campus.name}</h3>
+                        <p className="text-sm text-neutral-500 dark:text-neutral-400 flex items-center gap-1 mt-1">
                           <MapPin className="w-3 h-3" />
                           {campus.location}
                         </p>
                       </div>
                     </div>
-                    <div className="flex items-center justify-between pt-3 border-t">
-                      <span className="text-sm text-muted-foreground">
+                    <div className="flex items-center justify-between pt-3 border-t border-neutral-200 dark:border-neutral-700">
+                      <span className="text-sm text-neutral-500 dark:text-neutral-400">
                         {campus.listings} listings
                       </span>
                       <Link
                         href="/contact"
-                        className="text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1"
+                        className="text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity flex items-center gap-1 text-neutral-900 dark:text-neutral-50"
                       >
                         Inquire
                         <ArrowRight className="w-3 h-3" />
@@ -158,14 +158,14 @@ export default function CampusesPage() {
       </section>
 
       {/* Request campus */}
-      <section className="py-16 px-6 border-t">
+      <section className="py-16 px-6 border-t border-neutral-200 dark:border-neutral-800">
         <div className="max-w-6xl mx-auto">
-          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 p-8 border rounded-xl bg-secondary/50">
+          <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 p-8 border border-neutral-200 dark:border-neutral-700 rounded-xl bg-neutral-50 dark:bg-neutral-900">
             <div>
-              <h2 className="text-xl font-bold tracking-tight font-display">
+              <h2 className="text-xl font-bold tracking-tight font-display text-neutral-900 dark:text-neutral-50">
                 Don&apos;t see your campus?
               </h2>
-              <p className="mt-2 text-muted-foreground">
+              <p className="mt-2 text-neutral-500 dark:text-neutral-400">
                 We&apos;re expanding every month. Let us know where you need
                 housing.
               </p>
@@ -181,13 +181,13 @@ export default function CampusesPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 px-6 border-t bg-secondary/50">
+      <section className="py-16 px-6 border-t border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900">
         <div className="max-w-6xl mx-auto">
           <div className="max-w-2xl">
-            <h2 className="text-3xl font-bold tracking-tight font-display">
+            <h2 className="text-3xl font-bold tracking-tight font-display text-neutral-900 dark:text-neutral-50">
               Ready to find housing?
             </h2>
-            <p className="mt-4 text-muted-foreground leading-relaxed">
+            <p className="mt-4 text-neutral-500 dark:text-neutral-400 leading-relaxed">
               Get in touch and we&apos;ll help you find the right apartment near
               your campus.
             </p>
@@ -198,11 +198,11 @@ export default function CampusesPage() {
                   <ArrowRight className="ml-2 w-4 h-4" />
                 </Link>
               </Button>
-              <div className="text-sm text-muted-foreground">
+              <div className="text-sm text-neutral-500 dark:text-neutral-400">
                 <p>Or call us directly:</p>
                 <a
                   href="tel:+1-555-123-4567"
-                  className="text-foreground hover:underline"
+                  className="text-neutral-900 dark:text-neutral-50 hover:underline"
                 >
                   (555) 123-4567
                 </a>

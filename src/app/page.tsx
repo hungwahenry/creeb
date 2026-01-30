@@ -44,12 +44,12 @@ export default function Home() {
               <Badge variant="secondary" className="mb-6">
                 Now available at 50+ campuses
               </Badge>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] font-display">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] font-display text-neutral-900 dark:text-neutral-50">
                 Student housing,
                 <br />
                 without the hassle
               </h1>
-              <p className="mt-6 text-lg text-muted-foreground max-w-xl leading-relaxed">
+              <p className="mt-6 text-lg text-neutral-500 dark:text-neutral-400 max-w-xl leading-relaxed">
                 We connect students with verified apartments near their campus.
                 No endless searching, no scams, no stress.
               </p>
@@ -81,14 +81,14 @@ export default function Home() {
                   priority
                 />
               </div>
-              <div className="absolute -bottom-6 -left-6 bg-card border rounded-xl p-4 shadow-lg">
+              <div className="absolute -bottom-6 -left-6 bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-700 rounded-xl p-4 shadow-lg">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-green-500/10 flex items-center justify-center">
                     <div className="w-3 h-3 rounded-full bg-green-500" />
                   </div>
                   <div>
-                    <p className="font-medium text-sm">5,000+ students</p>
-                    <p className="text-xs text-muted-foreground">found their home</p>
+                    <p className="font-medium text-sm text-neutral-900 dark:text-neutral-50">5,000+ students</p>
+                    <p className="text-xs text-neutral-500 dark:text-neutral-400">found their home</p>
                   </div>
                 </div>
               </div>
@@ -100,7 +100,7 @@ export default function Home() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4, duration: 0.5 }}
-            className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 pt-12 border-t"
+            className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 pt-12 border-t border-neutral-200 dark:border-neutral-800"
           >
             {[
               { value: "50+", label: "Partner campuses" },
@@ -109,10 +109,10 @@ export default function Home() {
               { value: "24h", label: "Avg. response time" },
             ].map((stat) => (
               <div key={stat.label}>
-                <p className="text-3xl font-bold tracking-tight font-display">
+                <p className="text-3xl font-bold tracking-tight font-display text-neutral-900 dark:text-neutral-50">
                   {stat.value}
                 </p>
-                <p className="mt-1 text-sm text-muted-foreground">{stat.label}</p>
+                <p className="mt-1 text-sm text-neutral-500 dark:text-neutral-400">{stat.label}</p>
               </div>
             ))}
           </motion.div>
@@ -145,13 +145,13 @@ export default function Home() {
       </section>
 
       {/* How it works */}
-      <section className="py-20 px-6 border-t">
+      <section className="py-20 px-6 border-t border-neutral-200 dark:border-neutral-800">
         <div className="max-w-6xl mx-auto">
           <div className="max-w-2xl">
-            <p className="text-sm font-medium text-muted-foreground uppercase tracking-wider">
+            <p className="text-sm font-medium text-neutral-500 dark:text-neutral-400 uppercase tracking-wider">
               How it works
             </p>
-            <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight font-display">
+            <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight font-display text-neutral-900 dark:text-neutral-50">
               Three steps to your new home
             </h2>
           </div>
@@ -193,9 +193,9 @@ export default function Home() {
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                 </div>
-                <p className="text-sm font-mono text-muted-foreground">{item.step}</p>
-                <h3 className="mt-2 text-xl font-semibold font-display">{item.title}</h3>
-                <p className="mt-2 text-muted-foreground leading-relaxed">
+                <p className="text-sm font-mono text-neutral-500 dark:text-neutral-400">{item.step}</p>
+                <h3 className="mt-2 text-xl font-semibold font-display text-neutral-900 dark:text-neutral-50">{item.title}</h3>
+                <p className="mt-2 text-neutral-500 dark:text-neutral-400 leading-relaxed">
                   {item.description}
                 </p>
               </motion.div>
@@ -205,7 +205,7 @@ export default function Home() {
       </section>
 
       {/* Features */}
-      <section className="py-20 px-6 border-t bg-secondary/50">
+      <section className="py-20 px-6 border-t border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900">
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <motion.div
@@ -224,15 +224,15 @@ export default function Home() {
             </motion.div>
 
             <div>
-              <p className="text-sm font-medium text-muted-foreground uppercase tracking-wider">
+              <p className="text-sm font-medium text-neutral-500 dark:text-neutral-400 uppercase tracking-wider">
                 Why Creeb
               </p>
-              <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight font-display">
+              <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight font-display text-neutral-900 dark:text-neutral-50">
                 Built for students,
                 <br />
                 by people who get it
               </h2>
-              <p className="mt-4 text-muted-foreground leading-relaxed">
+              <p className="mt-4 text-neutral-500 dark:text-neutral-400 leading-relaxed">
                 Finding housing shouldn&apos;t compete with your coursework.
                 We&apos;ve simplified every step of the process.
               </p>
@@ -263,12 +263,12 @@ export default function Home() {
                     transition={{ delay: index * 0.1, duration: 0.5 }}
                     className="flex gap-4"
                   >
-                    <div className="shrink-0 w-10 h-10 rounded-lg border bg-background flex items-center justify-center">
-                      <feature.icon className="w-5 h-5 text-foreground" />
+                    <div className="shrink-0 w-10 h-10 rounded-lg border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-800 flex items-center justify-center">
+                      <feature.icon className="w-5 h-5 text-neutral-900 dark:text-neutral-50" />
                     </div>
                     <div>
-                      <h3 className="font-semibold">{feature.title}</h3>
-                      <p className="mt-1 text-sm text-muted-foreground leading-relaxed">
+                      <h3 className="font-semibold text-neutral-900 dark:text-neutral-50">{feature.title}</h3>
+                      <p className="mt-1 text-sm text-neutral-500 dark:text-neutral-400 leading-relaxed">
                         {feature.description}
                       </p>
                     </div>
@@ -281,14 +281,14 @@ export default function Home() {
       </section>
 
       {/* Campus preview */}
-      <section className="py-20 px-6 border-t">
+      <section className="py-20 px-6 border-t border-neutral-200 dark:border-neutral-800">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div>
-              <p className="text-sm font-medium text-muted-foreground uppercase tracking-wider">
+              <p className="text-sm font-medium text-neutral-500 dark:text-neutral-400 uppercase tracking-wider">
                 Campuses
               </p>
-              <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight font-display">
+              <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight font-display text-neutral-900 dark:text-neutral-50">
                 Where we operate
               </h2>
             </div>
@@ -319,8 +319,8 @@ export default function Home() {
                   />
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors" />
                 </div>
-                <p className="font-semibold">{campus.name}</p>
-                <p className="text-sm text-muted-foreground">{campus.location}</p>
+                <p className="font-semibold text-neutral-900 dark:text-neutral-50">{campus.name}</p>
+                <p className="text-sm text-neutral-500 dark:text-neutral-400">{campus.location}</p>
               </motion.div>
             ))}
           </div>
@@ -328,12 +328,12 @@ export default function Home() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 px-6 border-t bg-secondary/50">
+      <section className="py-20 px-6 border-t border-neutral-200 dark:border-neutral-800 bg-neutral-50 dark:bg-neutral-900">
         <div className="max-w-6xl mx-auto">
-          <p className="text-sm font-medium text-muted-foreground uppercase tracking-wider">
+          <p className="text-sm font-medium text-neutral-500 dark:text-neutral-400 uppercase tracking-wider">
             Testimonials
           </p>
-          <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight font-display">
+          <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight font-display text-neutral-900 dark:text-neutral-50">
             What students say
           </h2>
 
@@ -345,9 +345,9 @@ export default function Home() {
                 whileInView={{ opacity: 1 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.5 }}
-                className="p-8 bg-background border rounded-2xl"
+                className="p-8 bg-white dark:bg-neutral-800 border border-neutral-200 dark:border-neutral-700 rounded-2xl"
               >
-                <p className="text-lg leading-relaxed">&ldquo;{testimonial.quote}&rdquo;</p>
+                <p className="text-lg leading-relaxed text-neutral-900 dark:text-neutral-50">&ldquo;{testimonial.quote}&rdquo;</p>
                 <div className="mt-6 flex items-center gap-4">
                   <div className="relative w-12 h-12 rounded-full overflow-hidden">
                     <Image
@@ -358,8 +358,8 @@ export default function Home() {
                     />
                   </div>
                   <div>
-                    <p className="font-semibold">{testimonial.name}</p>
-                    <p className="text-sm text-muted-foreground">{testimonial.school}</p>
+                    <p className="font-semibold text-neutral-900 dark:text-neutral-50">{testimonial.name}</p>
+                    <p className="text-sm text-neutral-500 dark:text-neutral-400">{testimonial.school}</p>
                   </div>
                 </div>
               </motion.div>
@@ -369,14 +369,14 @@ export default function Home() {
       </section>
 
       {/* CTA */}
-      <section className="py-20 px-6 border-t">
+      <section className="py-20 px-6 border-t border-neutral-200 dark:border-neutral-800">
         <div className="max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold tracking-tight font-display">
+              <h2 className="text-3xl md:text-4xl font-bold tracking-tight font-display text-neutral-900 dark:text-neutral-50">
                 Ready to find your place?
               </h2>
-              <p className="mt-4 text-muted-foreground leading-relaxed">
+              <p className="mt-4 text-neutral-500 dark:text-neutral-400 leading-relaxed">
                 Get in touch and we&apos;ll help you find the right apartment for your
                 next semester. No commitment, no pressure.
               </p>
@@ -387,14 +387,14 @@ export default function Home() {
                     <ArrowRight className="ml-2 w-4 h-4" />
                   </Link>
                 </Button>
-                <div className="text-sm text-muted-foreground">
+                <div className="text-sm text-neutral-500 dark:text-neutral-400">
                   <p>Or reach us directly:</p>
                   <p className="mt-1">
-                    <a href="mailto:hello@creeb.com" className="text-foreground hover:underline">
+                    <a href="mailto:hello@creeb.com" className="text-neutral-900 dark:text-neutral-50 hover:underline">
                       hello@creeb.com
                     </a>
                     {" "}&middot;{" "}
-                    <a href="tel:+1-555-123-4567" className="text-foreground hover:underline">
+                    <a href="tel:+1-555-123-4567" className="text-neutral-900 dark:text-neutral-50 hover:underline">
                       (555) 123-4567
                     </a>
                   </p>
