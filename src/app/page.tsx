@@ -76,7 +76,7 @@ export default function Home() {
                     <ArrowRight className="ml-2 w-4 h-4" />
                   </Link>
                 </Button>
-                <Button variant="outline" size="lg" asChild className="border-white/30 text-white hover:bg-white/10 hover:text-white dark:border-white/30 dark:text-white dark:hover:bg-white/10 dark:bg-transparent">
+                <Button variant="outline" size="lg" asChild className="!border-white/30 !text-white !bg-transparent hover:!bg-white/10 dark:!border-white/30 dark:!text-white dark:!bg-transparent dark:hover:!bg-white/10">
                   <Link href="/contact">Contact us</Link>
                 </Button>
               </div>
