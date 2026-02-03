@@ -33,114 +33,82 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="pt-32 pb-20 px-6">
-        <div className="max-w-6xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
+      <section className="relative min-h-[100svh] flex items-end">
+        {/* Background image */}
+        <div className="absolute inset-0">
+          <Image
+            src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1920&h=1080&fit=crop&q=80"
+            alt="Modern apartment building"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-black/10" />
+        </div>
+
+        {/* Content */}
+        <div className="relative z-10 w-full">
+          <div className="max-w-6xl mx-auto px-6 pb-12 pt-32">
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
+              transition={{ duration: 0.7 }}
+              className="max-w-2xl"
             >
-              <Badge variant="secondary" className="mb-6">
-                Now in 50+ cities nationwide
-              </Badge>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] font-display text-neutral-900 dark:text-neutral-50">
+              <p className="text-sm font-medium text-white/60 uppercase tracking-widest mb-4">
+                50+ cities nationwide
+              </p>
+              <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-[1.05] font-display text-white">
                 Modern apartments,
                 <br />
-                everywhere you want to be
+                everywhere you
+                <br />
+                want to be
               </h1>
-              <p className="mt-6 text-lg text-neutral-500 dark:text-neutral-400 max-w-xl leading-relaxed">
-                Quality living spaces in cities across all 50 states.
-                Verified listings, transparent pricing, and a move-in experience that just works.
+              <p className="mt-6 text-lg text-white/70 max-w-lg leading-relaxed">
+                Verified listings, transparent pricing, and a move-in
+                experience that just works.
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-4">
-                <Button asChild size="lg">
+                <Button asChild size="lg" className="bg-white text-neutral-900 hover:bg-neutral-200 dark:bg-white dark:text-neutral-900 dark:hover:bg-neutral-200">
                   <Link href="/locations">
                     View locations
                     <ArrowRight className="ml-2 w-4 h-4" />
                   </Link>
                 </Button>
-                <Button variant="outline" size="lg" asChild>
+                <Button variant="outline" size="lg" asChild className="border-white/30 text-white hover:bg-white/10 hover:text-white dark:border-white/30 dark:text-white dark:hover:bg-white/10 dark:bg-transparent">
                   <Link href="/contact">Contact us</Link>
                 </Button>
               </div>
             </motion.div>
 
+            {/* Stats bar */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2, duration: 0.5 }}
-              className="relative hidden lg:block"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.4, duration: 0.6 }}
+              className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-12 pt-8 border-t border-white/15"
             >
-              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
-                <Image
-                  src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&h=600&fit=crop"
-                  alt="Modern apartment interior"
-                  fill
-                  className="object-cover"
-                  priority
-                />
-              </div>
-              <div className="absolute -bottom-6 -left-6 bg-white dark:bg-neutral-900 border border-neutral-200 dark:border-neutral-700 rounded-xl p-4 shadow-lg">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-green-500/10 flex items-center justify-center">
-                    <div className="w-3 h-3 rounded-full bg-green-500" />
-                  </div>
-                  <div>
-                    <p className="font-medium text-sm text-neutral-900 dark:text-neutral-50">10,000+ residents</p>
-                    <p className="text-xs text-neutral-500 dark:text-neutral-400">and counting</p>
-                  </div>
-                </div>
-              </div>
+              {[
+                { value: "50+", label: "Cities" },
+                { value: "10,000+", label: "Residents" },
+                { value: "98%", label: "Satisfaction" },
+                { value: "24h", label: "Response time" },
+              ].map((stat, index) => (
+                <motion.div
+                  key={stat.label}
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.5 + index * 0.1, duration: 0.5 }}
+                >
+                  <p className="text-2xl md:text-3xl font-bold tracking-tight font-display text-white">
+                    {stat.value}
+                  </p>
+                  <p className="mt-1 text-sm text-white/50">{stat.label}</p>
+                </motion.div>
+              ))}
             </motion.div>
           </div>
-
-          {/* Stats row */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.4, duration: 0.5 }}
-            className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 pt-12 border-t border-neutral-200 dark:border-neutral-800"
-          >
-            {[
-              { value: "50+", label: "Cities" },
-              { value: "10,000+", label: "Happy residents" },
-              { value: "98%", label: "Satisfaction rate" },
-              { value: "24h", label: "Avg. response time" },
-            ].map((stat) => (
-              <div key={stat.label}>
-                <p className="text-3xl font-bold tracking-tight font-display text-neutral-900 dark:text-neutral-50">
-                  {stat.value}
-                </p>
-                <p className="mt-1 text-sm text-neutral-500 dark:text-neutral-400">{stat.label}</p>
-              </div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
-      {/* Featured image section */}
-      <section className="px-6 pb-20">
-        <div className="max-w-6xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5 }}
-            className="relative aspect-[21/9] rounded-2xl overflow-hidden"
-          >
-            <Image
-              src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1400&h=600&fit=crop"
-              alt="Modern apartment building"
-              fill
-              className="object-cover"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-            <div className="absolute bottom-8 left-8 right-8">
-              <p className="text-white/80 text-sm uppercase tracking-wider">Featured</p>
-              <p className="text-white text-2xl font-bold font-display mt-1">Thoughtfully designed spaces for modern living</p>
-            </div>
-          </motion.div>
         </div>
       </section>
 
