@@ -5,14 +5,14 @@ import Footer from "@/components/Footer";
 import { ThemeProvider } from "@/components/ThemeProvider";
 
 export const metadata: Metadata = {
-  title: "Creeb | Student Apartment Booking",
+  title: "Creeb | Modern Apartments Across America",
   description:
-    "Find the perfect student apartment near your campus. Creeb connects students with quality, affordable housing across the US.",
+    "Find your perfect apartment in any of our 50+ locations nationwide. Creeb offers modern, quality living spaces designed for how people live today.",
   keywords: [
-    "student housing",
-    "apartment booking",
-    "college apartments",
-    "student rentals",
+    "apartments",
+    "modern living",
+    "apartment rentals",
+    "nationwide apartments",
   ],
 };
 

@@ -7,24 +7,24 @@ import { ArrowRight, MapPin, Shield, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
-const campuses = [
-  { name: "UCLA", location: "Los Angeles, CA", image: "https://images.unsplash.com/photo-1580537659466-0a9bfa916a54?w=600&h=400&fit=crop" },
-  { name: "MIT", location: "Cambridge, MA", image: "https://images.unsplash.com/photo-1564981797816-1043664bf78d?w=600&h=400&fit=crop" },
-  { name: "UT Austin", location: "Austin, TX", image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=600&h=400&fit=crop" },
-  { name: "UMich", location: "Ann Arbor, MI", image: "https://images.unsplash.com/photo-1562774053-701939374585?w=600&h=400&fit=crop" },
+const locations = [
+  { name: "New York", state: "NY", image: "https://images.unsplash.com/photo-1534430480872-3498386e7856?w=600&h=400&fit=crop" },
+  { name: "Los Angeles", state: "CA", image: "https://images.unsplash.com/photo-1580655653885-65763b2597d0?w=600&h=400&fit=crop" },
+  { name: "Austin", state: "TX", image: "https://images.unsplash.com/photo-1531218150217-54595bc2b934?w=600&h=400&fit=crop" },
+  { name: "Chicago", state: "IL", image: "https://images.unsplash.com/photo-1494522855154-9297ac14b55f?w=600&h=400&fit=crop" },
 ];
 
 const testimonials = [
   {
-    quote: "Found my apartment within a week. The team understood exactly what I needed as a grad student on a budget.",
+    quote: "Moved in within two weeks of my first inquiry. The whole process was seamless and the apartment exceeded my expectations.",
     name: "Maria J.",
-    school: "UCLA, Class of 2024",
+    detail: "New York, NY",
     image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop",
   },
   {
-    quote: "As an international student, I was worried about getting scammed. Creeb made the process feel safe and straightforward.",
+    quote: "After years of dealing with unresponsive landlords and hidden fees, Creeb was a breath of fresh air. Transparent and professional.",
     name: "Aditya K.",
-    school: "MIT, Class of 2025",
+    detail: "Austin, TX",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop",
   },
 ];
@@ -42,21 +42,21 @@ export default function Home() {
               transition={{ duration: 0.5 }}
             >
               <Badge variant="secondary" className="mb-6">
-                Now available at 50+ campuses
+                Now in 50+ cities nationwide
               </Badge>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1] font-display text-neutral-900 dark:text-neutral-50">
-                Student housing,
+                Modern apartments,
                 <br />
-                without the hassle
+                everywhere you want to be
               </h1>
               <p className="mt-6 text-lg text-neutral-500 dark:text-neutral-400 max-w-xl leading-relaxed">
-                We connect students with verified apartments near their campus.
-                No endless searching, no scams, no stress.
+                Quality living spaces in cities across all 50 states.
+                Verified listings, transparent pricing, and a move-in experience that just works.
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-4">
                 <Button asChild size="lg">
-                  <Link href="/campuses">
-                    Browse campuses
+                  <Link href="/locations">
+                    View locations
                     <ArrowRight className="ml-2 w-4 h-4" />
                   </Link>
                 </Button>
@@ -74,8 +74,8 @@ export default function Home() {
             >
               <div className="relative aspect-[4/3] rounded-2xl overflow-hidden">
                 <Image
-                  src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?w=800&h=600&fit=crop"
-                  alt="Students studying together"
+                  src="https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&h=600&fit=crop"
+                  alt="Modern apartment interior"
                   fill
                   className="object-cover"
                   priority
@@ -87,8 +87,8 @@ export default function Home() {
                     <div className="w-3 h-3 rounded-full bg-green-500" />
                   </div>
                   <div>
-                    <p className="font-medium text-sm text-neutral-900 dark:text-neutral-50">5,000+ students</p>
-                    <p className="text-xs text-neutral-500 dark:text-neutral-400">found their home</p>
+                    <p className="font-medium text-sm text-neutral-900 dark:text-neutral-50">10,000+ residents</p>
+                    <p className="text-xs text-neutral-500 dark:text-neutral-400">and counting</p>
                   </div>
                 </div>
               </div>
@@ -103,8 +103,8 @@ export default function Home() {
             className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-8 pt-12 border-t border-neutral-200 dark:border-neutral-800"
           >
             {[
-              { value: "50+", label: "Partner campuses" },
-              { value: "5,000+", label: "Students housed" },
+              { value: "50+", label: "Cities" },
+              { value: "10,000+", label: "Happy residents" },
               { value: "98%", label: "Satisfaction rate" },
               { value: "24h", label: "Avg. response time" },
             ].map((stat) => (
@@ -130,15 +130,15 @@ export default function Home() {
             className="relative aspect-[21/9] rounded-2xl overflow-hidden"
           >
             <Image
-              src="https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=1400&h=600&fit=crop"
-              alt="Modern student apartment"
+              src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=1400&h=600&fit=crop"
+              alt="Modern apartment building"
               fill
               className="object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
             <div className="absolute bottom-8 left-8 right-8">
               <p className="text-white/80 text-sm uppercase tracking-wider">Featured</p>
-              <p className="text-white text-2xl font-bold font-display mt-1">Modern living spaces designed for students</p>
+              <p className="text-white text-2xl font-bold font-display mt-1">Thoughtfully designed spaces for modern living</p>
             </div>
           </motion.div>
         </div>
@@ -160,20 +160,20 @@ export default function Home() {
             {[
               {
                 step: "01",
-                title: "Tell us your needs",
-                description: "Share your campus, budget, move-in date, and preferences. We handle the rest.",
+                title: "Tell us what you need",
+                description: "Share your city, budget, move-in date, and preferences. We narrow down the options for you.",
                 image: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=400&h=300&fit=crop",
               },
               {
                 step: "02",
                 title: "Get matched",
-                description: "Our team curates verified listings that fit your criteria. No spam, just options.",
+                description: "Our team curates verified apartments that fit your criteria. No spam, just quality options.",
                 image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=400&h=300&fit=crop",
               },
               {
                 step: "03",
                 title: "Move in",
-                description: "We help with the paperwork and logistics. You focus on starting your semester.",
+                description: "We handle the paperwork and coordination. You focus on settling into your new place.",
                 image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&h=300&fit=crop",
               },
             ].map((item, index) => (
@@ -228,31 +228,31 @@ export default function Home() {
                 Why Creeb
               </p>
               <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight font-display text-neutral-900 dark:text-neutral-50">
-                Built for students,
+                Apartment living,
                 <br />
-                by people who get it
+                done right
               </h2>
               <p className="mt-4 text-neutral-500 dark:text-neutral-400 leading-relaxed">
-                Finding housing shouldn&apos;t compete with your coursework.
-                We&apos;ve simplified every step of the process.
+                Finding a great apartment shouldn&apos;t be a full-time job.
+                We&apos;ve streamlined every step from search to move-in.
               </p>
 
               <div className="mt-10 grid gap-6">
                 {[
                   {
                     icon: MapPin,
-                    title: "Campus-centric",
-                    description: "Every listing is within walking distance or a short commute to your classes.",
+                    title: "Nationwide coverage",
+                    description: "Apartments in 50+ cities across every region of the country. Go where life takes you.",
                   },
                   {
                     icon: Shield,
                     title: "Verified properties",
-                    description: "We personally vet every landlord and property. No scams, guaranteed.",
+                    description: "Every listing and landlord is vetted by our team. No scams, no surprises.",
                   },
                   {
                     icon: Clock,
-                    title: "Flexible terms",
-                    description: "Semester-based leases that align with your academic calendar.",
+                    title: "Flexible leasing",
+                    description: "Short-term, long-term, or month-to-month. Lease terms that fit your life, not the other way around.",
                   },
                 ].map((feature, index) => (
                   <motion.div
@@ -280,30 +280,30 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Campus preview */}
+      {/* Location preview */}
       <section className="py-20 px-6 border-t border-neutral-200 dark:border-neutral-800">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-4">
             <div>
               <p className="text-sm font-medium text-neutral-500 dark:text-neutral-400 uppercase tracking-wider">
-                Campuses
+                Locations
               </p>
               <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight font-display text-neutral-900 dark:text-neutral-50">
-                Where we operate
+                Where we are
               </h2>
             </div>
             <Button variant="ghost" asChild>
-              <Link href="/campuses">
-                View all campuses
+              <Link href="/locations">
+                View all locations
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
             </Button>
           </div>
 
           <div className="mt-12 grid grid-cols-2 md:grid-cols-4 gap-4">
-            {campuses.map((campus, index) => (
+            {locations.map((location, index) => (
               <motion.div
-                key={campus.name}
+                key={location.name}
                 initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
@@ -312,15 +312,15 @@ export default function Home() {
               >
                 <div className="relative aspect-[4/3] rounded-xl overflow-hidden mb-4">
                   <Image
-                    src={campus.image}
-                    alt={campus.name}
+                    src={location.image}
+                    alt={location.name}
                     fill
                     className="object-cover transition-transform duration-500 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors" />
                 </div>
-                <p className="font-semibold text-neutral-900 dark:text-neutral-50">{campus.name}</p>
-                <p className="text-sm text-neutral-500 dark:text-neutral-400">{campus.location}</p>
+                <p className="font-semibold text-neutral-900 dark:text-neutral-50">{location.name}</p>
+                <p className="text-sm text-neutral-500 dark:text-neutral-400">{location.state}</p>
               </motion.div>
             ))}
           </div>
@@ -334,7 +334,7 @@ export default function Home() {
             Testimonials
           </p>
           <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight font-display text-neutral-900 dark:text-neutral-50">
-            What students say
+            What residents say
           </h2>
 
           <div className="mt-12 grid md:grid-cols-2 gap-8">
@@ -359,7 +359,7 @@ export default function Home() {
                   </div>
                   <div>
                     <p className="font-semibold text-neutral-900 dark:text-neutral-50">{testimonial.name}</p>
-                    <p className="text-sm text-neutral-500 dark:text-neutral-400">{testimonial.school}</p>
+                    <p className="text-sm text-neutral-500 dark:text-neutral-400">{testimonial.detail}</p>
                   </div>
                 </div>
               </motion.div>
@@ -377,8 +377,8 @@ export default function Home() {
                 Ready to find your place?
               </h2>
               <p className="mt-4 text-neutral-500 dark:text-neutral-400 leading-relaxed">
-                Get in touch and we&apos;ll help you find the right apartment for your
-                next semester. No commitment, no pressure.
+                Get in touch and we&apos;ll help you find the right apartment in
+                your city. No commitment, no pressure.
               </p>
               <div className="mt-8 flex flex-col sm:flex-row items-start gap-4">
                 <Button asChild size="lg">
@@ -409,8 +409,8 @@ export default function Home() {
               className="relative aspect-[4/3] rounded-2xl overflow-hidden"
             >
               <Image
-                src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=800&h=600&fit=crop"
-                alt="Happy students"
+                src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&h=600&fit=crop"
+                alt="Modern apartment living room"
                 fill
                 className="object-cover"
               />

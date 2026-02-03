@@ -3,7 +3,7 @@ import Link from "next/link";
 const navigation = {
   main: [
     { name: "Home", href: "/" },
-    { name: "Campuses", href: "/campuses" },
+    { name: "Locations", href: "/locations" },
     { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
   ],
@@ -19,7 +19,7 @@ export default function Footer() {
               creeb
             </Link>
             <p className="mt-2 text-sm text-neutral-500 dark:text-neutral-400 max-w-xs">
-              Student housing, simplified.
+              Modern apartments, nationwide.
             </p>
           </div>
 

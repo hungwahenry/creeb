@@ -9,7 +9,7 @@ import { Button } from "@/components/ui/button";
 const team = [
   { name: "Alex Chen", role: "Founder & CEO", image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop" },
   { name: "Jordan Smith", role: "Operations", image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop" },
-  { name: "Maya Patel", role: "Student Relations", image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&h=400&fit=crop" },
+  { name: "Maya Patel", role: "Resident Experience", image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?w=400&h=400&fit=crop" },
   { name: "Chris Johnson", role: "Engineering", image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop" },
 ];
 
@@ -29,9 +29,9 @@ export default function AboutPage() {
               About
             </p>
             <h1 className="mt-3 text-4xl md:text-5xl font-bold tracking-tight leading-tight font-display text-neutral-900 dark:text-neutral-50">
-              Making student housing
+              Better apartments,
               <br />
-              less stressful
+              better living
             </h1>
           </motion.div>
         </div>
@@ -47,8 +47,8 @@ export default function AboutPage() {
             className="relative aspect-[21/9] rounded-2xl overflow-hidden"
           >
             <Image
-              src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1400&h=600&fit=crop"
-              alt="University campus"
+              src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1400&h=600&fit=crop"
+              alt="Modern apartment building exterior"
               fill
               className="object-cover"
               priority
@@ -63,26 +63,26 @@ export default function AboutPage() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <p className="text-lg text-neutral-500 dark:text-neutral-400 leading-relaxed">
-                Creeb started with a simple observation: finding student housing
-                is unnecessarily complicated. Between scam listings, unresponsive
-                landlords, and prices that don&apos;t match student budgets, the
-                whole process felt broken.
+                Creeb started with a simple idea: renting an apartment should be
+                straightforward, transparent, and fair. Too many people deal with
+                hidden fees, unresponsive management, and listings that don&apos;t
+                match reality.
               </p>
               <p className="mt-6 text-neutral-500 dark:text-neutral-400 leading-relaxed">
-                We built Creeb to fix that. Our team personally vets every property
-                and landlord on our platform. We negotiate student-friendly lease
-                terms. And we&apos;re always available to help when things go wrong.
+                We built Creeb to change that. Every property on our platform is
+                personally verified. Every landlord meets our standards. And our
+                team is always available when you need us.
               </p>
               <p className="mt-6 text-neutral-500 dark:text-neutral-400 leading-relaxed">
-                Today, we work with over 50 campuses across the US. But our
-                mission remains the same: help students find a place to call home
-                so they can focus on what matters.
+                Today, we operate in over 50 cities across the US, helping
+                thousands of people find apartments they actually love. Our
+                mission is simple: make renting better for everyone.
               </p>
             </div>
             <div className="grid grid-cols-2 gap-4">
               {[
-                { value: "50+", label: "Campuses" },
-                { value: "5,000+", label: "Students" },
+                { value: "50+", label: "Cities" },
+                { value: "10,000+", label: "Residents" },
                 { value: "98%", label: "Satisfaction" },
                 { value: "2021", label: "Founded" },
               ].map((stat, index) => (
@@ -139,12 +139,12 @@ export default function AboutPage() {
                     description: "No hidden fees, no bait-and-switch. What you see is what you get, every time.",
                   },
                   {
-                    title: "Students over profits",
-                    description: "We optimize for student satisfaction, not commission. That's why students trust us.",
+                    title: "Residents over profits",
+                    description: "We optimize for resident satisfaction, not commissions. That's why people trust us.",
                   },
                   {
                     title: "Always improving",
-                    description: "We actively seek feedback and iterate. The platform you use today is better than yesterday.",
+                    description: "We actively seek feedback and iterate. The experience you have today is better than yesterday.",
                   },
                 ].map((value, index) => (
                   <motion.div
@@ -213,7 +213,7 @@ export default function AboutPage() {
                 Want to work with us?
               </h2>
               <p className="mt-2 text-neutral-500 dark:text-neutral-400">
-                We&apos;re always looking for ways to help more students.
+                Whether you&apos;re looking for an apartment or a partnership, we&apos;d love to hear from you.
               </p>
             </div>
             <Button asChild>

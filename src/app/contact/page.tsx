@@ -26,8 +26,8 @@ export default function ContactPage() {
                 Get in touch
               </h1>
               <p className="mt-4 text-neutral-500 dark:text-neutral-400">
-                Have questions about finding housing? We&apos;re here to help.
-                Fill out the form or reach us directly.
+                Looking for an apartment? Have a question? We&apos;d love to
+                hear from you. Fill out the form or reach us directly.
               </p>
             </motion.div>
             <motion.div
@@ -37,8 +37,8 @@ export default function ContactPage() {
               className="relative aspect-[4/3] rounded-2xl overflow-hidden hidden lg:block"
             >
               <Image
-                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&h=600&fit=crop"
-                alt="Students collaborating"
+                src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&h=600&fit=crop"
+                alt="Modern apartment interior"
                 fill
                 className="object-cover"
               />
@@ -73,14 +73,14 @@ export default function ContactPage() {
                   <label className="block text-sm font-medium mb-2 text-neutral-900 dark:text-neutral-50">
                     Email
                   </label>
-                  <Input type="email" placeholder="jane@university.edu" />
+                  <Input type="email" placeholder="jane@example.com" />
                 </div>
 
                 <div>
                   <label className="block text-sm font-medium mb-2 text-neutral-900 dark:text-neutral-50">
-                    Campus
+                    City / Location
                   </label>
-                  <Input placeholder="e.g., UCLA, MIT, UT Austin" />
+                  <Input placeholder="e.g., New York, Los Angeles, Chicago" />
                 </div>
 
                 <div>
@@ -89,9 +89,10 @@ export default function ContactPage() {
                   </label>
                   <select className="flex h-9 w-full rounded-md border border-neutral-200 dark:border-neutral-700 bg-white dark:bg-neutral-950 px-3 py-1 text-sm shadow-sm transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-neutral-950 dark:focus-visible:ring-neutral-300 text-neutral-900 dark:text-neutral-50">
                     <option value="">Select a topic</option>
-                    <option value="housing">Looking for housing</option>
-                    <option value="campus">Request new campus</option>
-                    <option value="landlord">I&apos;m a landlord</option>
+                    <option value="renting">Looking for an apartment</option>
+                    <option value="location">Request new location</option>
+                    <option value="landlord">I&apos;m a property owner</option>
+                    <option value="partnership">Partnership inquiry</option>
                     <option value="other">Other</option>
                   </select>
                 </div>
@@ -102,7 +103,7 @@ export default function ContactPage() {
                   </label>
                   <Textarea
                     rows={5}
-                    placeholder="Tell us about your needs - budget, move-in date, preferences, etc."
+                    placeholder="Tell us what you're looking for - budget, move-in date, preferences, etc."
                   />
                 </div>
 
@@ -189,19 +190,19 @@ export default function ContactPage() {
             {[
               {
                 q: "How does Creeb work?",
-                a: "Share your preferences and we match you with verified listings. We handle the legwork so you can focus on school.",
+                a: "Tell us your preferences and we match you with verified apartments. We handle the legwork so you can focus on what matters.",
               },
               {
                 q: "Is there a fee?",
-                a: "Our basic service is free for students. We may charge for premium features like priority matching.",
+                a: "Our basic search service is free. We may charge for premium features like priority matching and concierge move-in support.",
               },
               {
                 q: "How do you verify listings?",
-                a: "Every property and landlord goes through our verification process before being listed.",
+                a: "Every property and landlord goes through our vetting process including in-person inspections before being listed.",
               },
               {
-                q: "What if my campus isn't listed?",
-                a: "Contact us to request it. We prioritize based on student demand and expand regularly.",
+                q: "What if my city isn't listed?",
+                a: "Contact us to request it. We prioritize expansion based on demand and add new cities regularly.",
               },
             ].map((faq, index) => (
               <motion.div

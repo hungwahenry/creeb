@@ -9,30 +9,30 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 
-const campuses = [
-  { name: "UCLA", location: "Los Angeles, CA", region: "West", listings: 150, image: "https://images.unsplash.com/photo-1580674285054-bed31e145f59?w=600&h=400&fit=crop" },
-  { name: "MIT", location: "Cambridge, MA", region: "Northeast", listings: 85, image: "https://images.unsplash.com/photo-1564981797816-1043664bf78d?w=600&h=400&fit=crop" },
-  { name: "UT Austin", location: "Austin, TX", region: "South", listings: 120, image: "https://images.unsplash.com/photo-1559135197-8a45ea74d367?w=600&h=400&fit=crop" },
-  { name: "UMich", location: "Ann Arbor, MI", region: "Midwest", listings: 95, image: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?w=600&h=400&fit=crop" },
-  { name: "Stanford", location: "Stanford, CA", region: "West", listings: 75, image: "https://images.unsplash.com/photo-1562774053-701939374585?w=600&h=400&fit=crop" },
-  { name: "NYU", location: "New York, NY", region: "Northeast", listings: 200, image: "https://images.unsplash.com/photo-1534430480872-3498386e7856?w=600&h=400&fit=crop" },
-  { name: "UW", location: "Seattle, WA", region: "West", listings: 110, image: "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=600&h=400&fit=crop" },
-  { name: "Georgia Tech", location: "Atlanta, GA", region: "South", listings: 90, image: "https://images.unsplash.com/photo-1569447891824-7a1758aa73a2?w=600&h=400&fit=crop" },
-  { name: "UIUC", location: "Champaign, IL", region: "Midwest", listings: 130, image: "https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?w=600&h=400&fit=crop" },
-  { name: "Boston University", location: "Boston, MA", region: "Northeast", listings: 105, image: "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=600&h=400&fit=crop" },
-  { name: "USC", location: "Los Angeles, CA", region: "West", listings: 140, image: "https://images.unsplash.com/photo-1595981267035-7b04ca84a82d?w=600&h=400&fit=crop" },
-  { name: "UF", location: "Gainesville, FL", region: "South", listings: 115, image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=600&h=400&fit=crop" },
+const locations = [
+  { name: "Manhattan", city: "New York, NY", region: "Northeast", listings: 320, image: "https://images.unsplash.com/photo-1534430480872-3498386e7856?w=600&h=400&fit=crop" },
+  { name: "Downtown LA", city: "Los Angeles, CA", region: "West", listings: 250, image: "https://images.unsplash.com/photo-1580655653885-65763b2597d0?w=600&h=400&fit=crop" },
+  { name: "South Loop", city: "Chicago, IL", region: "Midwest", listings: 180, image: "https://images.unsplash.com/photo-1494522855154-9297ac14b55f?w=600&h=400&fit=crop" },
+  { name: "Midtown", city: "Atlanta, GA", region: "South", listings: 145, image: "https://images.unsplash.com/photo-1569447891824-7a1758aa73a2?w=600&h=400&fit=crop" },
+  { name: "Capitol Hill", city: "Seattle, WA", region: "West", listings: 165, image: "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?w=600&h=400&fit=crop" },
+  { name: "Back Bay", city: "Boston, MA", region: "Northeast", listings: 140, image: "https://images.unsplash.com/photo-1467269204594-9661b134dd2b?w=600&h=400&fit=crop" },
+  { name: "East Austin", city: "Austin, TX", region: "South", listings: 190, image: "https://images.unsplash.com/photo-1531218150217-54595bc2b934?w=600&h=400&fit=crop" },
+  { name: "River North", city: "Denver, CO", region: "West", listings: 130, image: "https://images.unsplash.com/photo-1546156929-a4c0ac411f47?w=600&h=400&fit=crop" },
+  { name: "Wicker Park", city: "Chicago, IL", region: "Midwest", listings: 155, image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop" },
+  { name: "Wynwood", city: "Miami, FL", region: "South", listings: 200, image: "https://images.unsplash.com/photo-1535498730771-e735b998cd64?w=600&h=400&fit=crop" },
+  { name: "Pearl District", city: "Portland, OR", region: "West", listings: 120, image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&h=400&fit=crop" },
+  { name: "Williamsburg", city: "Brooklyn, NY", region: "Northeast", listings: 275, image: "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=600&h=400&fit=crop" },
 ];
 
 const regions = ["All", "West", "Northeast", "South", "Midwest"];
 
-export default function CampusesPage() {
+export default function LocationsPage() {
   const [selectedRegion, setSelectedRegion] = useState("All");
 
-  const filteredCampuses =
+  const filteredLocations =
     selectedRegion === "All"
-      ? campuses
-      : campuses.filter((c) => c.region === selectedRegion);
+      ? locations
+      : locations.filter((l) => l.region === selectedRegion);
 
   return (
     <>
@@ -45,23 +45,23 @@ export default function CampusesPage() {
             transition={{ duration: 0.5 }}
           >
             <p className="text-sm font-medium text-neutral-500 dark:text-neutral-400 uppercase tracking-wider">
-              Campuses
+              Locations
             </p>
             <h1 className="mt-3 text-4xl md:text-5xl font-bold tracking-tight font-display text-neutral-900 dark:text-neutral-50">
-              Where we operate
+              Find your city
             </h1>
             <p className="mt-4 text-neutral-500 dark:text-neutral-400 max-w-xl">
-              We partner with universities across the US to provide verified
-              student housing. Select your region or browse all campuses.
+              We have apartments in neighborhoods across the country.
+              Filter by region or browse all available locations.
             </p>
           </motion.div>
 
           {/* Stats */}
           <div className="mt-12 flex flex-wrap gap-8">
             {[
-              { value: "50+", label: "Campuses" },
-              { value: "25", label: "States" },
-              { value: "1,500+", label: "Listings" },
+              { value: "50+", label: "Cities" },
+              { value: "30", label: "States" },
+              { value: "2,500+", label: "Listings" },
             ].map((stat) => (
               <div key={stat.label} className="flex items-baseline gap-2">
                 <span className="text-2xl font-bold font-display text-neutral-900 dark:text-neutral-50">{stat.value}</span>
@@ -94,7 +94,7 @@ export default function CampusesPage() {
         </div>
       </section>
 
-      {/* Campus grid */}
+      {/* Locations grid */}
       <section className="py-12 px-6">
         <div className="max-w-6xl mx-auto">
           <AnimatePresence mode="wait">
@@ -106,9 +106,9 @@ export default function CampusesPage() {
               transition={{ duration: 0.2 }}
               className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
             >
-              {filteredCampuses.map((campus, index) => (
+              {filteredLocations.map((location, index) => (
                 <motion.div
-                  key={campus.name}
+                  key={location.name}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.05, duration: 0.3 }}
@@ -116,30 +116,30 @@ export default function CampusesPage() {
                 >
                   <div className="relative aspect-[3/2] overflow-hidden">
                     <Image
-                      src={campus.image}
-                      alt={campus.name}
+                      src={location.image}
+                      alt={location.name}
                       fill
                       className="object-cover transition-transform duration-500 group-hover:scale-105"
                     />
                     <div className="absolute top-3 right-3">
                       <Badge variant="secondary" className="bg-white/90 dark:bg-neutral-900/90 backdrop-blur-sm">
-                        {campus.region}
+                        {location.region}
                       </Badge>
                     </div>
                   </div>
                   <div className="p-5">
                     <div className="flex items-start justify-between mb-3">
                       <div>
-                        <h3 className="font-semibold text-neutral-900 dark:text-neutral-50">{campus.name}</h3>
+                        <h3 className="font-semibold text-neutral-900 dark:text-neutral-50">{location.name}</h3>
                         <p className="text-sm text-neutral-500 dark:text-neutral-400 flex items-center gap-1 mt-1">
                           <MapPin className="w-3 h-3" />
-                          {campus.location}
+                          {location.city}
                         </p>
                       </div>
                     </div>
                     <div className="flex items-center justify-between pt-3 border-t border-neutral-200 dark:border-neutral-700">
                       <span className="text-sm text-neutral-500 dark:text-neutral-400">
-                        {campus.listings} listings
+                        {location.listings} listings
                       </span>
                       <Link
                         href="/contact"
@@ -157,22 +157,22 @@ export default function CampusesPage() {
         </div>
       </section>
 
-      {/* Request campus */}
+      {/* Request location */}
       <section className="py-16 px-6 border-t border-neutral-200 dark:border-neutral-800">
         <div className="max-w-6xl mx-auto">
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 p-8 border border-neutral-200 dark:border-neutral-700 rounded-xl bg-neutral-50 dark:bg-neutral-900">
             <div>
               <h2 className="text-xl font-bold tracking-tight font-display text-neutral-900 dark:text-neutral-50">
-                Don&apos;t see your campus?
+                Don&apos;t see your city?
               </h2>
               <p className="mt-2 text-neutral-500 dark:text-neutral-400">
-                We&apos;re expanding every month. Let us know where you need
-                housing.
+                We&apos;re expanding to new cities every month. Let us know where
+                you&apos;re looking.
               </p>
             </div>
             <Button asChild>
               <Link href="/contact">
-                Request campus
+                Request a location
                 <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
             </Button>
@@ -185,11 +185,11 @@ export default function CampusesPage() {
         <div className="max-w-6xl mx-auto">
           <div className="max-w-2xl">
             <h2 className="text-3xl font-bold tracking-tight font-display text-neutral-900 dark:text-neutral-50">
-              Ready to find housing?
+              Ready to find your apartment?
             </h2>
             <p className="mt-4 text-neutral-500 dark:text-neutral-400 leading-relaxed">
-              Get in touch and we&apos;ll help you find the right apartment near
-              your campus.
+              Get in touch and we&apos;ll help you find the right place in your
+              city.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row items-start gap-4">
               <Button asChild size="lg">
